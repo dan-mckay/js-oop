@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	// Parasitic Combination Inheritance - combines parasitic with combination (more efficient)
+
+	    	function inherit(o) {
+			    var F = function(){};
+				F.prototype = o;
+				return new F();
+			}
+			
+			function inheritPrototype(subType, superType) {
+			    var proto = inherit(superType.prototype);
+				proto.constructor = subType;
+				subType.prototype = proto;
+			}
+
+			// Subclass
+			function Bike(color, year, make, type) {
+				Vehicle.call(this, color, year, make);
+				this.type = type;
+			}
+
+	    	inheritPrototype(Bike, Vehicle);
+
+	    	var myBike = new Bike("Blue", 2013, "Pinarello", "Road Bike");
+
+	    	console.log("myBike's colour: " + myBike.colour);
+	    	console.log("myBike's type = " + myBike.type);				// TRUE
+	    	console.log("myBike instance of Vehicle = " + (myBike instanceof Vehicle));		// TRUE
+	    	console.log(myBike.toString());
+	    	console.log(myBike);
+	    </script>	
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>

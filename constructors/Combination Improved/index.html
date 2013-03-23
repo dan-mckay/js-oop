@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	var v1 = new Vehicle("Blue", 2013, "Mercedes");
+	    	var v2 = new Vehicle("Red", 2002, "Toyota");
+	    	var v3 = new Vehicle("Black", 1989, "Rolls Royce");
+
+	    	var v4 = new Vehicle();
+
+	    	console.log("v1 instance of Vehicle = " + (v1 instanceof Vehicle));
+	    	console.log("v2 instance of Vehicle = " + (v2 instanceof Vehicle));
+	    	console.log("v3 instance of Vehicle = " + (v3 instanceof Vehicle));
+	    	console.log("v4 instance of Vehicle = " + (v4 instanceof Vehicle));
+
+	    	console.log(v1);
+	    	console.log(v2);
+	    	console.log(v3);
+	    	console.log(v4);
+	    	
+
+	    	console.log(v1.toString());
+	    	console.log(v2.toString());
+	    	console.log(v3.toString());
+	    	console.log(v4.toString());
+
+	    	console.log(v1.getColour());
+	    	console.log(v2.getColour());
+	    	console.log(v3.getColour());
+	    	console.log(v4.getColour());
+	    </script>
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>

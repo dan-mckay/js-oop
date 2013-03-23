@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	// These objects will have their properties set as below
+	    	// They will also have the Vehicle protoype as their prototype
+	    	var v1 = new Vehicle();
+	    	v1.colour = "Blue";
+	    	v1.year = 2013;
+	    	v1.make = "Mercedes";
+	    	var v2 = new Vehicle();
+	    	v2.colour = "Red";
+	    	v2.year = 2002;
+	    	v2.make = "Toyota";
+	    	var v3 = new Vehicle();
+	    	v3.colour = "Black";
+	    	v3.year = 1989;
+	    	v3.make = "Rolls Royce";
+
+	    	// As none have been set, this object's properties will taken from its prototype,
+	    	// which is the Vehicle's prototype
+	    	var v4 = new Vehicle();
+
+	    	console.log("v1 instance of Vehicle = " + (v1 instanceof Vehicle));
+	    	console.log("v2 instance of Vehicle = " + (v2 instanceof Vehicle));
+	    	console.log("v3 instance of Vehicle = " + (v3 instanceof Vehicle));
+	    	console.log("v4 instance of Vehicle = " + (v4 instanceof Vehicle));
+
+	    	console.log(v1);
+	    	console.log(v2);
+	    	console.log(v3);
+	    	console.log(v4);
+	    	
+
+	    	console.log(v1.toString());
+	    	console.log(v2.toString());
+	    	console.log(v3.toString());
+	    	console.log(v4.toString());
+	    </script>
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>

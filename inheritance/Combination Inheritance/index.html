@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	// Combination (Pseudo-Classical) Inheritance - Sub Class
+	    	
+	    	// This example does not have its properties set as it only
+	    	// inherits the prototype of the superclass, 
+			function Car(type, model) {
+				this.type = type;
+				this.model = model;
+			}
+
+			Car.prototype = new Vehicle();
+
+			var myCar = new Car("Car", "Focus");
+
+			console.log("My car's colour: " + myCar.colour);
+			console.log("My car's year: " + myCar.year);
+			console.log("My car's make: " + myCar.make);
+			console.log("My car's type: " + myCar.type);
+			console.log("My car's model: " + myCar.model);
+			console.log("To String Method: " + myCar.toString());
+
+			console.log("myCar instance of Vehicle = " + (myCar instanceof Vehicle));		// TRUE
+	    	console.log(myCar);
+
+	    	// Another Sub Class
+	    	function Motorbike(type, model) {
+	    		this.type = type;
+	    		this.model = model;
+	    	}
+
+	    	// in this example create an object of the superclass
+	    	// and make this the prototype of the new subclass
+	    	var v = new Vehicle("Red", 1977, "Kawasaki");
+
+	    	Motorbike.prototype = v;
+
+	    	var myBike = new Motorbike("Bike", "turbo 5000");
+
+	    	console.log("My bike's colour: " + myBike.colour);
+			console.log("My bike's year: " + myBike.year);
+			console.log("My bike's make: " + myBike.make);
+			console.log("My bike's type: " + myBike.type);
+			console.log("My bike's model: " + myBike.model);
+			console.log("To String Method: " + myBike.toString());
+
+			console.log("myCar instance of Vehicle = " + (myBike instanceof Vehicle));		// TRUE
+	    	console.log(myBike);
+
+	    	// This example calls the constructor of the superclass in its constructor
+	    	// maintaining the scope of this to this function
+			function Van(type, model, colour, year, make) {
+				Vehicle.call(this, colour, year, make);
+				this.type = type;
+				this.model = model;
+			}
+
+			var myVan = new Van("Van", "Transit", "White", 1989, "Ford");
+
+			console.log("My van's colour: " + myVan.colour);
+			console.log("My van's year: " + myVan.year);
+			console.log("My van's make: " + myVan.make);
+			console.log("My van's type: " + myVan.type);
+			console.log("My van's model: " + myVan.model);
+			console.log("To String Method: " + myVan.toString());
+
+			console.log("myCar instance of Vehicle = " + (myVan instanceof Vehicle));		// FALSE
+	    	console.log(myVan);
+	    </script>
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>

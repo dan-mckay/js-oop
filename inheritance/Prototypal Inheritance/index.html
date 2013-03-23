@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	// Prototypal Inheritance
+
+	    	// This function creates a function object (so we can access the prototype)
+	    	// sets the prototype of the fucntion object to be the object parameter, 
+	    	// and returns the function object
+	    	function inherit(o) {
+				var F = function() {};
+				F.prototype = o;
+				return new F();
+			}
+	    	
+	    	var myVehicle = new Vehicle("Grey", 1976, "Volvo");
+
+	    	var myLorry = inherit(myVehicle);
+
+	    	myLorry.type = "Lorry";
+
+	    	console.log("myLorry's colour: " + myLorry.colour);
+	    	console.log("myLorry's type: " + myLorry.type);
+	    	console.log("myLorry instance of Vehicle = " + (myLorry instanceof Vehicle));		// TRUE
+	    	console.log(myLorry);
+
+	    	// As of ECMAScript 5 you can achieve the inherit function with this:
+	    	var myOtherLorry = Object.create(myVehicle);
+
+	    	myOtherLorry.type = "Articulated Lorry";
+
+	    	console.log("myOtherLorry's colour: " + myOtherLorry.colour);
+	    	console.log("myOtherLorry's type: " + myOtherLorry.type);
+	    	console.log("myOtherLorry instance of Vehicle = " + (myOtherLorry instanceof Vehicle));		// TRUE
+	    	console.log(myOtherLorry);
+	    </script>
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	    <script type="text/javascript" src="vehicle.js"></script>
+	    <script type="text/javascript">
+	    	// Parasitic Inheritance - similar to the parasitic constructor and factory patterns
+
+	    	function anotherVehicle(original, dbl) {
+	    		var clone = Object.create(original);
+	    		clone.isDoubleDecker = dbl;
+	    		return clone;
+	    	}
+
+	    	var v = new Vehicle("Red", 1960, "Leyland");
+
+	    	var londonBus = anotherVehicle(v, true);
+
+	    	console.log("londonBus's colour: " + londonBus.colour);
+	    	console.log("londonBus is double decker = " + londonBus.isDoubleDecker);				// TRUE
+	    	console.log("londonBus instance of Vehicle = " + (londonBus instanceof Vehicle));		// TRUE
+	    	console.log(londonBus);
+	    </script>	
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+</html>
